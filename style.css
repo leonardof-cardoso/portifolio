@@ -215,6 +215,9 @@ section{
 .about-content p {
     font-size: 1.8rem;
 }
+.about-btn{
+    margin-top: 3.2rem;
+}
 .about-intro{
     font-size: 2rem;
     font-weight: 700;
