@@ -76,8 +76,3 @@ Atualmente o portfolio destaca projetos reais do GitHub:
 
 Este portfolio foi pensado para funcionar como vitrine profissional, reunindo apresentacao, habilidades tecnicas, experiencia pratica e acesso rapido aos principais projetos e curriculo.
 
-## Autor
-
-Leonardo Cardoso  
-GitHub: https://github.com/leonardof-cardoso  
-LinkedIn: https://www.linkedin.com/in/l-card
