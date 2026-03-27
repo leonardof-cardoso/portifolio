@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Portfolio</title>
     <link rel="stylesheet" href="style.css"/>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,47 +20,35 @@
         <i class="bx bx-menu" id="menu-icon"></i>
 
         <nav class="navbar">
-            <a href="#home">Início</a>
+            <a href="#home">Inicio</a>
             <a href="#about">Sobre</a>
-            <a href="#services">Serviços</a>
+            <a href="#stack">Stack</a>
             <a href="#projects">Projetos</a>
-            <a href="#contact">Contato</a>
-        </nav>    
+            <a href="#cv">CV</a>
+        </nav>
 
-        <button class="gradient-btn">Contato</button>
+        <a href="#cv" class="gradient-btn">CV</a>
 
     </header>
 
     <section class="home" id="home">
         <div class="home-content">
-            <h1>Olá, <span>Leonardo</span></h1>
-            <h3>
-                Sou <span>Desenvolvedor</span> 
-            </h3>
-            <p>Desenvolvedor de Software com experiência em sustentação de aplicações, análise e resolução de incidentes em produção. Atuo no desenvolvimento e manutenção de APIs, integrações de sistemas e aplicações web utilizando Node.js, Python, C#, JavaScript e TypeScript. Possuo background em infraestrutura e bancos de dados, com foco em estabilidade, troubleshooting e evolução de sistemas escaláveis.</p>
-           
+            <h1>Ola, me chamo <span>Leonardo</span></h1>
+
+            <h1><p>Desenvolvedor de Software com foco em sustentacao de aplicacoes criticas, troubleshooting avancado e integracoes entre sistemas, com experiencia em APIs, evolucao de aplicacoes web e suporte a operacoes em producao.</p></h1>
+
             <div class="social-icons">
-                <a href="#">
+                <a href="https://github.com/leonardof-cardoso" target="_blank" rel="noopener noreferrer">
                     <i class="bx bxl-github"></i>
                 </a>
 
-                <a href="#">
+                <a href="https://www.linkedin.com/in/l-card" target="_blank" rel="noopener noreferrer">
                     <i class="bx bxl-linkedin-square"></i>
-                </a>
-                
-                <a href="#">
-                    <i class="bx bxl-instagram"></i>
-                </a>
-
-                <a href="#">
-                    <i class="bx bxl-twitter"></i>
                 </a>
             </div>
 
             <div class="btn-group">
-                <a href="#" class="btn">Contratar</a>
-                <a href="#contact" 
-                class="btn">Contato</a>
+                <a href="#cv" class="btn">Baixar Curriculo</a>
             </div>
         </div>
 
@@ -67,48 +56,86 @@
             <img src="image.png" alt="">
         </div>
     </section>
-    
-    <section class="about" id="about"> 
-        
+
+    <section class="about" id="about">
+
         <div class="about-img">
             <img src="image.png" alt="">
         </div>
 
         <div class="about-content">
             <h2>Sobre <span>Mim</span></h2>
-            <p>Desenvolvedor de Software com experiência em sustentação de aplicações, análise e resolução de incidentes em produção. Atuo no desenvolvimento e manutenção de APIs, integrações de sistemas e aplicações web. Minhas principais tecnologias são: Node.js, Python, C#, JavaScript, TypeScript, PostgreSQL, MySQL, MongoDB, Docker e GitHub.</p>
-            <a href="#" class="btn">Saber Mais</a>
+            <p class="about-intro">Desenvolvedor de Software com foco em sustentacao de aplicacoes criticas, troubleshooting avancado e integracoes entre sistemas.</p>
+
+            <div class="about-details">
+                <p>Atuo diretamente na analise e resolucao de incidentes em producao, investigando causas raiz e implementando solucoes que aumentam a estabilidade e confiabilidade dos sistemas.</p>
+                <p>Tenho forte experiencia com APIs, integracoes e evolucao de aplicacoes web, sempre com foco em impacto real no negocio.</p>
+                <p>Meu background em infraestrutura e redes me permite ter uma visao completa das aplicacoes, acelerando diagnosticos e tornando as solucoes mais eficientes, principalmente em ambientes distribuidos.</p>
+                <p>Tambem desenvolvo projetos praticos em Java, incluindo aplicacoes voltadas para automacao e processamento de eventos em ambiente de jogos, utilizando Maven e Gradle.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Habilidades</h3>
+                    <ul class="about-list">
+                        <li><strong>Linguagens:</strong> Node.js, Python, C#, JavaScript, TypeScript e Java</li>
+                        <li><strong>Banco de dados:</strong> PostgreSQL, MySQL e MongoDB</li>
+                        <li><strong>Integracoes:</strong> REST APIs, servicos e plataformas externas</li>
+                        <li><strong>Infra e ferramentas:</strong> Docker, Git, GitHub, Maven e Gradle</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <h3>Objetivo Profissional</h3>
+                    <p>Busco oportunidades que me permitam evoluir continuamente como profissional, atuando em diferentes frentes da tecnologia, dados, desenvolvimento e sustentacao.</p>
+                    <p>Tenho conhecimento pratico na area e estou em constante evolucao, com forte interesse em aprofundar habilidades tecnicas, ampliar minha atuacao e contribuir de forma consistente para a construcao e melhoria de solucoes tecnologicas.</p>
+                </div>
+            </div>
         </div>
 
     </section>
 
-    <section class="services" id="services">
+    <section class="stack" id="stack">
+        <h2 class="heading">Stack</h2>
+        <p class="stack-subtitle">Tecnologias que fazem parte da minha rotina de desenvolvimento, APIs, banco de dados, automacao e infraestrutura.</p>
 
-        <h2 class="heading">Serviços</h2>
-
-        <div class="services-container">
-            <div class="services-box">
-                <div class="service-info">
-                    <i class="bx bx-code"></i>
-                    <h4>Desenvolvimento Backend</h4>
-                    <p>Desenvolvimento de APIs robustas e escaláveis utilizando Node.js, Python e C#. Integração de sistemas, bancos de dados e serviços em produção com foco em estabilidade e performance.</p>
-                </div>
+        <div class="stack-marquee">
+            <div class="stack-track">
+                <div class="stack-item"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
+                <div class="stack-item"><i class="devicon-python-plain"></i><span>Python</span></div>
+                <div class="stack-item"><i class="devicon-csharp-plain"></i><span>C#</span></div>
+                <div class="stack-item"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+                <div class="stack-item"><i class="devicon-typescript-plain"></i><span>TypeScript</span></div>
+                <div class="stack-item"><i class="devicon-java-plain"></i><span>Java</span></div>
+                <div class="stack-item"><i class="devicon-dotnetcore-plain"></i><span>.NET</span></div>
+                <div class="stack-item"><i class="devicon-fastapi-plain"></i><span>FastAPI</span></div>
+                <div class="stack-item"><i class="devicon-django-plain"></i><span>Django</span></div>
+                <div class="stack-item"><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></div>
+                <div class="stack-item"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+                <div class="stack-item"><i class="devicon-mongodb-plain"></i><span>MongoDB</span></div>
+                <div class="stack-item"><i class="devicon-docker-plain"></i><span>Docker</span></div>
+                <div class="stack-item"><i class="devicon-git-plain"></i><span>Git</span></div>
+                <div class="stack-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
+                <div class="stack-item"><i class="devicon-html5-plain"></i><span>HTML5</span></div>
+                <div class="stack-item"><i class="devicon-css3-plain"></i><span>CSS3</span></div>
+                <div class="stack-item"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
+                <div class="stack-item"><i class="devicon-python-plain"></i><span>Python</span></div>
+                <div class="stack-item"><i class="devicon-csharp-plain"></i><span>C#</span></div>
+                <div class="stack-item"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+                <div class="stack-item"><i class="devicon-typescript-plain"></i><span>TypeScript</span></div>
+                <div class="stack-item"><i class="devicon-java-plain"></i><span>Java</span></div>
+                <div class="stack-item"><i class="devicon-dotnetcore-plain"></i><span>.NET</span></div>
+                <div class="stack-item"><i class="devicon-fastapi-plain"></i><span>FastAPI</span></div>
+                <div class="stack-item"><i class="devicon-django-plain"></i><span>Django</span></div>
+                <div class="stack-item"><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></div>
+                <div class="stack-item"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+                <div class="stack-item"><i class="devicon-mongodb-plain"></i><span>MongoDB</span></div>
+                <div class="stack-item"><i class="devicon-docker-plain"></i><span>Docker</span></div>
+                <div class="stack-item"><i class="devicon-git-plain"></i><span>Git</span></div>
+                <div class="stack-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
+                <div class="stack-item"><i class="devicon-html5-plain"></i><span>HTML5</span></div>
+                <div class="stack-item"><i class="devicon-css3-plain"></i><span>CSS3</span></div>
             </div>
-            <div class="services-box">
-                <div class="service-info">
-                    <i class="bx bx-code-curly"></i>
-                    <h4>APIs e Integrações</h4>
-                    <p>Criação de REST APIs e integração com plataformas externas. Resolução de incidentes em produção e otimização de sistemas escaláveis com troubleshooting avançado.</p>
-                </div>
-            </div>
-            <div class="services-box">
-                <div class="service-info">
-                    <i class="bx bxl-figma"></i>
-                    <h4>Infraestrutura e DevOps</h4>
-                    <p>Gerenciamento de infraestrutura com Docker, Git e GitHub. Configuração de ambientes de produção com enfoque em segurança, escalabilidade e automação de processos.</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -121,94 +148,71 @@
             <div class="project-card">
                 <img src="project1.png" alt="">
 
-                <h3>Project 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic excepturi recusandae veritatis, eius ipsam laboriosam expedita unde molestias quae blanditiis cumque eveniet sit iusto ab earum quis commodi, dolor porro!</p>
-                <div class="btn">Review Project</div>
+                <h3>Projeto ONG</h3>
+                <p>Projeto social desenvolvido para uma ONG com foco em democratizar o acesso a cursinhos online gratuitos para vestibulandos de baixa renda. A proposta une impacto social, inclusao digital e uma estrutura web pensada para apresentar a iniciativa com clareza e credibilidade.</p>
+                <a href="https://github.com/leonardof-cardoso/Projeto-ONG" class="btn" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
             </div>
 
-             <div class="project-card">
+            <div class="project-card">
                 <img src="project2.png" alt="">
 
-                <h3>Project 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic excepturi recusandae veritatis, eius ipsam laboriosam expedita unde molestias quae blanditiis cumque eveniet sit iusto ab earum quis commodi, dolor porro!</p>
-                <div class="btn">Review Project</div>
-            </div>   
+                <h3>PulseOS</h3>
+                <p>Base de um SaaS de gestao criada para pequenos negocios que precisam organizar clientes, agenda, pagamentos e operacao em um unico sistema. O projeto foi estruturado para evoluir como produto real, com visao comercial, modularidade e potencial de escala.</p>
+                <a href="https://github.com/leonardof-cardoso/fluxo-saas-pulseos" class="btn" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
+            </div>
 
-                 <div class="project-card">
+            <div class="project-card">
                 <img src="project3.png" alt="">
 
-                <h3>Project 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic excepturi recusandae veritatis, eius ipsam laboriosam expedita unde molestias quae blanditiis cumque eveniet sit iusto ab earum quis commodi, dolor porro!</p>
-                <div class="btn">Review Project</div>
+                <h3>.NET JWT Auth API</h3>
+                <p>API desenvolvida em ASP.NET Core para estudo e aplicacao pratica de autenticacao com JWT. O projeto contempla cadastro, login, geracao de token e rota protegida, demonstrando dominio de seguranca, persistencia com SQLite e organizacao backend em C#.</p>
+                <a href="https://github.com/leonardof-cardoso/dotnet-jwt-auth" class="btn" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
             </div>
 
-                 <div class="project-card">
+            <div class="project-card">
                 <img src="project4.png" alt="">
 
-                <h3>Project 4</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic excepturi recusandae veritatis, eius ipsam laboriosam expedita unde molestias quae blanditiis cumque eveniet sit iusto ab earum quis commodi, dolor porro!</p>
-                <div class="btn">Review Project</div>
+                <h3>TaskManagerAPI</h3>
+                <p>API de gestao de tarefas criada com ASP.NET Core, Entity Framework Core e SQLite, com estrutura em camadas para facilitar manutencao e evolucao. O projeto evidencia boas praticas como uso de DTOs, servicos, repositorios e operacoes assincronas.</p>
+                <a href="https://github.com/leonardof-cardoso/dotnet-task-api" class="btn" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
             </div>
 
-                 <div class="project-card">
+            <div class="project-card">
                 <img src="project5.png" alt="">
 
-                <h3>Project 5</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic excepturi recusandae veritatis, eius ipsam laboriosam expedita unde molestias quae blanditiis cumque eveniet sit iusto ab earum quis commodi, dolor porro!</p>
-                <div class="btn">Review Project</div>
+                <h3>Chatbot com IA</h3>
+                <p>Aplicacao full stack inspirada no estilo ChatGPT, com backend em FastAPI, autenticacao JWT, historico de conversas em SQLite e integracao com a API Gemini. Um projeto que combina IA generativa, experiencia conversacional e desenvolvimento web completo.</p>
+                <a href="https://github.com/leonardof-cardoso/chatbotPython" class="btn" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
             </div>
 
-                 <div class="project-card">
+            <div class="project-card">
                 <img src="project6.png" alt="">
 
-                <h3>Project 6</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic excepturi recusandae veritatis, eius ipsam laboriosam expedita unde molestias quae blanditiis cumque eveniet sit iusto ab earum quis commodi, dolor porro!</p>
-                <div class="btn">Review Project</div>
+                <h3>Outros Projetos</h3>
+                <p>Acesse meu GitHub para verificar todos os meus projetos, onde compartilho aplicacoes, estudos e experiencias praticas que demonstram minhas habilidades e evolucao no desenvolvimento.</p>
+                <a href="https://github.com/leonardof-cardoso" class="btn" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2 class="heading">Entre em <span>Contato </span></h2>
+    <section class="contact" id="cv">
+        <h2 class="heading">Meu <span>CV</span></h2>
 
-        <form action="#">
-            <div class="input-group">
-
-                <div class="input-box">
-                    <input type="text" placeholder="Nome completo">
-                    <input type="email" placeholder="E-mail">
-                </div>
-
-                <div class="input-box">
-                <input type="number" placeholder="Número de telefone">
-                <input type="text" placeholder="Assunto">
-                </div>
-            </div>
-
-            <div class="input-group2">
-                <textarea name="message" id="" placeholder="Mensagem" cols="30" rows="10"></textarea>
-                <input type="submit" value="Enviar" class="btn">
-            </div>
-
-        </form>
+        <div class="cv-box">
+            <h3>Curriculo Profissional</h3>
+            <p>Baixe meu curriculo para acessar um resumo objetivo da minha experiencia, principais tecnologias, projetos e atuacao profissional em desenvolvimento de software.</p>
+            <a href="curriculo.pdf" download class="btn">Baixar Curriculo</a>
+        </div>
     </section>
 
     <footer class="footer">
         <div class="social-icons">
-                <a href="#">
+                <a href="https://github.com/leonardof-cardoso" target="_blank" rel="noopener noreferrer">
                     <i class="bx bxl-github"></i>
                 </a>
 
-                <a href="#">
+                <a href="https://www.linkedin.com/in/l-card" target="_blank" rel="noopener noreferrer">
                     <i class="bx bxl-linkedin-square"></i>
-                </a>
-                
-                <a href="#">
-                    <i class="bx bxl-instagram"></i>
-                </a>
-
-                <a href="#">
-                    <i class="bx bxl-twitter"></i>
                 </a>
             </div>
 
@@ -217,16 +221,16 @@
                     <a href="#">FAQ</a>
                 </li>
                 <li>
-                    <a href="#services">Serviços</a>
+                    <a href="#stack">Stack</a>
                 </li>
-                                <li>
+                <li>
                     <a href="#about">Sobre</a>
                 </li>
-                                <li>
+                <li>
                     <a href="#projects">Projetos</a>
                 </li>
-                                <li>
-                    <a href="#contact">Contato</a>
+                <li>
+                    <a href="#cv">CV</a>
                 </li>
             </ul>
 
