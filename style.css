@@ -558,3 +558,84 @@ section{
         font-size: 1.4rem;
     }
 }
+
+@media(max-width:768px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 2.2rem 7%;
+    }
+    .logo{
+        font-size: 1.9rem;
+    }
+    .navbar{
+        width: 72%;
+        padding: 1.5rem 2.2rem;
+    }
+    section{
+        min-height: auto;
+        padding: 10rem 7% 7rem;
+    }
+    .home{
+        gap: 3.5rem;
+        margin: 2rem 0 0;
+    }
+    .home-content h1{
+        font-size: 5.8rem;
+        line-height: 1.05;
+    }
+    .home-content p{
+        font-size: 1.7rem;
+    }
+    .home-img img{
+        width: 68vw;
+        height: 68vw;
+    }
+    .heading{
+        font-size: 5.8rem;
+        margin: 3rem 0 4rem;
+    }
+    .about{
+        gap: 3.5rem;
+    }
+    .about-content h2{
+        font-size: 5.6rem;
+        line-height: 1.05;
+    }
+    .about-content p{
+        font-size: 1.7rem;
+        line-height: 1.75;
+    }
+    .about-btn{
+        margin-top: 4rem;
+    }
+    .projects-box{
+        grid-template-columns: 1fr;
+    }
+    .project-card{
+        width: 100%;
+        max-width: 42rem;
+        padding: 3.5rem 2rem;
+    }
+    .project-card img{
+        width: 100%;
+        max-width: 100%;
+    }
+    .cv-box{
+        width: 100%;
+        padding: 3.8rem 2.4rem;
+    }
+    .cv-box h3{
+        font-size: 3rem;
+    }
+    .cv-box p{
+        font-size: 1.7rem;
+    }
+    .footer{
+        padding: 4rem 7%;
+    }
+    .footer .list li{
+        margin: 0 1rem 1rem;
+    }
+}
