@@ -599,15 +599,20 @@ section{
     .about{
         gap: 3.5rem;
     }
+    .about-img{
+        display: none;
+    }
     .about-content h2{
         font-size: 5.6rem;
         line-height: 1.05;
     }
     .about-content{
+        width: 100%;
         align-items: center;
         text-align: center;
     }
     .about-content p{
+        width: 100%;
         font-size: 1.7rem;
         line-height: 1.75;
     }
