@@ -603,11 +603,16 @@ section{
         font-size: 5.6rem;
         line-height: 1.05;
     }
+    .about-content{
+        align-items: center;
+        text-align: center;
+    }
     .about-content p{
         font-size: 1.7rem;
         line-height: 1.75;
     }
     .about-btn{
+        align-self: center;
         margin-top: 4rem;
     }
     .projects-box{
