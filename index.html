@@ -127,26 +127,42 @@
     <div class="chatbot-shell" id="chatbot-shell">
         <section class="chatbot-panel" aria-label="Chat profissional sobre Leonardo Cardoso">
             <div class="chatbot-header">
-                <div>
-                    <span class="chatbot-badge">Chat</span>
+                <div class="chatbot-header-copy">
+                    <span class="chatbot-badge">Assistente</span>
                     <h3>Pergunte sobre Leonardo</h3>
+                    <p>Experi&ecirc;ncia, tecnologias, projetos e objetivo profissional.</p>
                 </div>
                 <button class="chatbot-close" id="chatbot-close" type="button" aria-label="Fechar chat"><i class="bx bx-x"></i></button>
             </div>
             <div class="chatbot-body" id="chatbot-body">
-                <div class="chatbot-message bot"><p>Olá! Faça qualquer pergunta sobre experiência, tecnologias, projetos, formação, idiomas, certificações e objetivo profissional.</p></div>
+                <div class="chatbot-message chatbot-message-bot">
+                    <div class="chatbot-avatar"><i class="bx bx-bot"></i></div>
+                    <div class="chatbot-bubble">
+                        <p>Ol&aacute;! Fa&ccedil;a qualquer pergunta sobre experi&ecirc;ncia, tecnologias, projetos, forma&ccedil;&atilde;o, idiomas, certifica&ccedil;&otilde;es e objetivo profissional.</p>
+                    </div>
+                </div>
+                <div class="chatbot-message chatbot-message-bot">
+                    <div class="chatbot-avatar"><i class="bx bx-bot"></i></div>
+                    <div class="chatbot-bubble">
+                        <p>Voc&ecirc; pode perguntar sobre stack, projetos do GitHub, experi&ecirc;ncia profissional e objetivos de carreira.</p>
+                    </div>
+                </div>
             </div>
-            <div class="chatbot-suggestions" id="chatbot-suggestions">
-                <button type="button" class="suggestion-chip">Experiência profissional</button>
-                <button type="button" class="suggestion-chip">Tecnologias principais</button>
-                <button type="button" class="suggestion-chip">Objetivo profissional</button>
+            <div class="chatbot-footer">
+                <div class="chatbot-suggestions" id="chatbot-suggestions">
+                    <button type="button" class="suggestion-chip">Experi&ecirc;ncia profissional</button>
+                    <button type="button" class="suggestion-chip">Tecnologias principais</button>
+                    <button type="button" class="suggestion-chip">Objetivo profissional</button>
+                </div>
+                <form class="chatbot-form" id="chatbot-form">
+                    <input type="text" id="chatbot-input" placeholder="Digite sua pergunta..." autocomplete="off">
+                    <button type="submit" class="chatbot-send" aria-label="Enviar mensagem"><i class="bx bx-send"></i></button>
+                </form>
             </div>
-            <form class="chatbot-form" id="chatbot-form">
-                <input type="text" id="chatbot-input" placeholder="Digite sua pergunta..." autocomplete="off">
-                <button type="submit" class="chatbot-send">Enviar</button>
-            </form>
         </section>
-        <button class="chatbot-toggle" id="chatbot-toggle" type="button" aria-label="Abrir ou fechar chat"><i class="bx bx-message-rounded-dots"></i></button>
+        <button class="chatbot-toggle" id="chatbot-toggle" type="button" aria-label="Abrir ou fechar chat">
+            <i class="bx bx-message-rounded-dots"></i>
+        </button>
     </div>
 
     <script src="script.js"></script>

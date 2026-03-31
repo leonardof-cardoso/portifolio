@@ -17,8 +17,8 @@ const knowledgeBase = {
     education: "Leonardo é formado em Análise e Desenvolvimento de Sistemas pela UNINOVE e também possui base técnica construída na FIEB, com foco em tecnologia da informação e sistemas.",
     certifications: "Entre os estudos e certificações citados estão Python, lógica de programação, pensamento computacional e fundamentos de Prompt Engineering. O currículo também destaca português nativo e inglês em nível profissional de trabalho.",
     goals: "O objetivo profissional do Leonardo é evoluir continuamente como desenvolvedor, contribuindo com backend, integrações, dados e sustentação em projetos com impacto real no negócio.",
-    privacy: "Prefiro manter informações pessoais em sigilo. Posso te ajudar com experiência, tecnologias, projetos, formação e objetivos profissionais do Leonardo.",
-    fallback: "Posso te ajudar com perguntas sobre experiência profissional, tecnologias, projetos, formação, certificações, idiomas e objetivos de carreira do Leonardo."
+    privacy: "Prefiro manter informações pessoais em sigilo. Posso ajudar com experiência, tecnologias, projetos, formação e objetivos profissionais do Leonardo.",
+    fallback: "Posso ajudar com perguntas sobre experiência profissional, tecnologias, projetos, formação, certificações, idiomas e objetivos de carreira do Leonardo."
 };
 
 const sensitiveTerms = [
@@ -36,28 +36,47 @@ function normalize(text) {
         .trim();
 }
 
-function appendMessage(text, type) {
+function buildMessage(text, type) {
     const wrapper = document.createElement("div");
-    wrapper.className = `chatbot-message ${type}`;
+    wrapper.className = `chatbot-message chatbot-message-${type}`;
+
+    const avatar = document.createElement("div");
+    avatar.className = "chatbot-avatar";
+    avatar.innerHTML = '<i class="bx bx-bot"></i>';
+
+    const bubble = document.createElement("div");
+    bubble.className = "chatbot-bubble";
 
     const paragraph = document.createElement("p");
     paragraph.textContent = text;
+    bubble.appendChild(paragraph);
 
-    wrapper.appendChild(paragraph);
-    chatbotBody.appendChild(wrapper);
-    chatbotBody.scrollTop = chatbotBody.scrollHeight;
+    wrapper.appendChild(avatar);
+    wrapper.appendChild(bubble);
     return wrapper;
+}
+
+function appendMessage(text, type) {
+    const node = buildMessage(text, type);
+    chatbotBody.appendChild(node);
+    chatbotBody.scrollTop = chatbotBody.scrollHeight;
+    return node;
 }
 
 function appendTyping() {
     const wrapper = document.createElement("div");
-    wrapper.className = "chatbot-message bot typing";
+    wrapper.className = "chatbot-message chatbot-message-bot chatbot-message-typing";
 
-    const paragraph = document.createElement("p");
-    const dotAnchor = document.createElement("span");
+    const avatar = document.createElement("div");
+    avatar.className = "chatbot-avatar";
+    avatar.innerHTML = '<i class="bx bx-bot"></i>';
 
-    paragraph.appendChild(dotAnchor);
-    wrapper.appendChild(paragraph);
+    const bubble = document.createElement("div");
+    bubble.className = "chatbot-bubble";
+    bubble.appendChild(document.createElement("span"));
+
+    wrapper.appendChild(avatar);
+    wrapper.appendChild(bubble);
     chatbotBody.appendChild(wrapper);
     chatbotBody.scrollTop = chatbotBody.scrollHeight;
     return wrapper;
@@ -85,7 +104,7 @@ function handleQuestion(question) {
     appendMessage(question.trim(), "user");
     const answer = getAnswer(question);
     const typing = appendTyping();
-    const waitTime = Math.min(1200, Math.max(500, answer.length * 7));
+    const waitTime = Math.min(1250, Math.max(520, answer.length * 7));
 
     window.setTimeout(() => {
         typing.remove();
