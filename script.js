@@ -10,7 +10,7 @@ const suggestionChips = document.querySelectorAll(".suggestion-chip");
 
 const knowledgeBase = {
     summary: "Leonardo Cardoso é um Desenvolvedor de Software focado em sustentação de aplicações críticas, troubleshooting avançado, backend, APIs e integrações entre sistemas.",
-    experience: "Leonardo atua na PierServ como Desenvolvedor Full Stack com foco em backend, integrações e sustentação de sistemas. Também passou pela Pontal Tech com foco em APIs, SQL, RCS e suporte técnico, e pela Mambo WiFi com atuação forte em redes, autenticação, APIs e infraestrutura corporativa.",
+    experience: "Leonardo atua como Desenvolvedor Full Stack com foco em backend, integrações e sustentação de sistemas. Também passou pela Pontal Tech com foco em APIs, SQL, RCS e suporte técnico, e pela Mambo WiFi com atuação forte em redes, autenticação, APIs e infraestrutura corporativa.",
     stack: "As principais tecnologias e ferramentas do Leonardo incluem Node.js, Python, C#, JavaScript, TypeScript, Java, .NET, Django, FastAPI, PostgreSQL, MySQL, MongoDB, Docker, Git, GitHub, Postman e plataformas em nuvem quando necessário.",
     backend: "No backend, Leonardo trabalha com APIs REST, integrações entre sistemas, scripts em Python, ETL, manutenção de serviços em produção, análise de incidentes e sustentação de aplicações distribuídas.",
     projects: "Os projetos em destaque no portfólio incluem Projeto ONG, PulseOS, .NET JWT Auth API, TaskManagerAPI e Chatbot com IA. Eles reforçam experiência com backend, APIs, interfaces web e soluções com aplicação prática.",
@@ -18,7 +18,7 @@ const knowledgeBase = {
     certifications: "Entre os estudos e certificações citados estão Python, lógica de programação, pensamento computacional e fundamentos de Prompt Engineering. O currículo também destaca português nativo e inglês em nível profissional de trabalho.",
     goals: "O objetivo profissional do Leonardo é evoluir continuamente como desenvolvedor, contribuindo com backend, integrações, dados e sustentação em projetos com impacto real no negócio.",
     privacy: "Prefiro manter informações pessoais em sigilo. Posso ajudar com experiência, tecnologias, projetos, formação e objetivos profissionais do Leonardo.",
-    fallback: "Posso ajudar com perguntas sobre experiência profissional, tecnologias, projetos, formação, certificações, idiomas e objetivos de carreira do Leonardo."
+    fallback: "O chatbot ainda está sendo desenvolvido e alimentado com mais informações. Por enquanto, tente perguntar sobre experiência profissional, tecnologias, projetos, formação, certificações, idiomas ou objetivos de carreira."
 };
 
 const sensitiveTerms = [
