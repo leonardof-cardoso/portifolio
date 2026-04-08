@@ -49,33 +49,16 @@ body {
   letter-spacing: 0.18em;
   color: #0d6bff;
   text-shadow: 0 0 2.5rem rgba(13, 107, 255, 0.25);
-  animation: loaderPulse 0.9s ease-in-out infinite alternate;
-}
-.page-loader-line{
-  position: absolute;
-  background: rgba(255, 255, 255, 0.18);
-}
-.page-loader-line-left{
-  left: 0;
-  right: 48%;
-  bottom: 22%;
-  height: 1px;
-}
-.page-loader-line-right{
-  width: 1px;
-  height: 46%;
-  right: 18%;
-  top: 18%;
-  transform: rotate(28deg);
-  transform-origin: top;
+  animation: loaderZoom 0.95s ease forwards;
 }
 .page-loader-hidden{
   opacity: 0;
   visibility: hidden;
 }
-@keyframes loaderPulse{
-  from{ transform: scale(0.98); opacity: 0.88; }
-  to{ transform: scale(1.02); opacity: 1; }
+@keyframes loaderZoom{
+  0%{ transform: scale(0.92); opacity: 0.2; }
+  35%{ transform: scale(1); opacity: 1; }
+  100%{ transform: scale(1.12); opacity: 1; }
 }
 .header{
     position: fixed;
