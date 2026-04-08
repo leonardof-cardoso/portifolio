@@ -8,6 +8,7 @@ const chatbotForm = document.querySelector("#chatbot-form");
 const chatbotInput = document.querySelector("#chatbot-input");
 const suggestionChips = document.querySelectorAll(".suggestion-chip");
 const pageLoader = document.querySelector("#page-loader");
+const typewriterTargets = document.querySelectorAll("[data-typewriter]");
 
 const knowledgeBase = {
     summary: "Leonardo Cardoso é um Desenvolvedor de Software focado em sustentação de aplicações críticas, troubleshooting avançado, backend, APIs e integrações entre sistemas.",
@@ -28,6 +29,81 @@ const sensitiveTerms = [
     "documento", "estado civil", "familia", "família", "namorada", "namoro", "filho", "filhos", "religiao", "religião",
     "politica", "política"
 ];
+
+
+function tokenizeHTML(html) {
+    const tokens = [];
+    let index = 0;
+
+    while (index < html.length) {
+        if (html[index] == "<") {
+            const closeIndex = html.indexOf(">", index);
+            tokens.push(html.slice(index, closeIndex + 1));
+            index = closeIndex + 1;
+            continue;
+        }
+
+        if (html[index] == "&") {
+            const entityEnd = html.indexOf(";", index);
+            tokens.push(html.slice(index, entityEnd + 1));
+            index = entityEnd + 1;
+            continue;
+        }
+
+        tokens.push(html[index]);
+        index += 1;
+    }
+
+    return tokens;
+}
+
+function runTypewriter(element) {
+    if (!element || element.dataset.typed === "true") return;
+
+    const finalHTML = element.dataset.typewriterHtml || element.innerHTML;
+    const tokens = tokenizeHTML(finalHTML);
+    const speed = Number(element.dataset.typeSpeed || 16);
+
+    element.dataset.typewriterHtml = finalHTML;
+    element.dataset.typed = "true";
+    element.classList.add("typewriter-active");
+    element.innerHTML = "";
+
+    let html = "";
+    let index = 0;
+
+    const tick = () => {
+        if (index >= tokens.length) return;
+        html += tokens[index];
+        element.innerHTML = html;
+        index += 1;
+        window.setTimeout(tick, speed);
+    };
+
+    tick();
+}
+
+function setupTypewriterSections() {
+    if (!typewriterTargets.length || typeof IntersectionObserver === "undefined") return;
+
+    typewriterTargets.forEach(element => {
+        element.classList.add("typewriter-target");
+        element.dataset.typewriterHtml = element.innerHTML;
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            runTypewriter(entry.target);
+            observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.45,
+        rootMargin: "0px 0px -10% 0px"
+    });
+
+    typewriterTargets.forEach(element => observer.observe(element));
+}
 
 function normalize(text) {
     return text
@@ -119,6 +195,8 @@ window.addEventListener("load", () => {
         history.replaceState(null, "", window.location.pathname + window.location.search);
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }
+
+    setupTypewriterSections();
 
     window.setTimeout(() => {
         if (pageLoader) pageLoader.classList.add("page-loader-hidden");
