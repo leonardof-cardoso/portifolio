@@ -21,6 +21,62 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
+.is-loading{
+  overflow: hidden;
+}
+.page-loader{
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #050505;
+  overflow: hidden;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+.page-loader::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 102, 255, 0.12), transparent 40%);
+}
+.page-loader-mark{
+  position: relative;
+  z-index: 2;
+  font-size: clamp(4.8rem, 10vw, 10rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #0d6bff;
+  text-shadow: 0 0 2.5rem rgba(13, 107, 255, 0.25);
+  animation: loaderPulse 0.9s ease-in-out infinite alternate;
+}
+.page-loader-line{
+  position: absolute;
+  background: rgba(255, 255, 255, 0.18);
+}
+.page-loader-line-left{
+  left: 0;
+  right: 48%;
+  bottom: 22%;
+  height: 1px;
+}
+.page-loader-line-right{
+  width: 1px;
+  height: 46%;
+  right: 18%;
+  top: 18%;
+  transform: rotate(28deg);
+  transform-origin: top;
+}
+.page-loader-hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+@keyframes loaderPulse{
+  from{ transform: scale(0.98); opacity: 0.88; }
+  to{ transform: scale(1.02); opacity: 1; }
+}
 .header{
     position: fixed;
     width: 100%;

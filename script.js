@@ -7,6 +7,7 @@ const chatbotBody = document.querySelector("#chatbot-body");
 const chatbotForm = document.querySelector("#chatbot-form");
 const chatbotInput = document.querySelector("#chatbot-input");
 const suggestionChips = document.querySelectorAll(".suggestion-chip");
+const pageLoader = document.querySelector("#page-loader");
 
 const knowledgeBase = {
     summary: "Leonardo Cardoso é um Desenvolvedor de Software focado em sustentação de aplicações críticas, troubleshooting avançado, backend, APIs e integrações entre sistemas.",
@@ -118,6 +119,11 @@ window.addEventListener("load", () => {
         history.replaceState(null, "", window.location.pathname + window.location.search);
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }
+
+    window.setTimeout(() => {
+        if (pageLoader) pageLoader.classList.add("page-loader-hidden");
+        document.body.classList.remove("is-loading");
+    }, 950);
 });
 
 if (menuIcon && navbar) {
