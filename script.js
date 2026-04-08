@@ -9,6 +9,7 @@ const chatbotInput = document.querySelector("#chatbot-input");
 const suggestionChips = document.querySelectorAll(".suggestion-chip");
 const pageLoader = document.querySelector("#page-loader");
 const typewriterTargets = document.querySelectorAll("[data-typewriter]");
+const revealTargets = document.querySelectorAll(".project-card, .cv-box, .about-img, .about-content, .stack-marquee, .stack-subtitle, .home-img, .home-content, .footer .social-icons, .footer .list, .footer .copyright");
 
 const knowledgeBase = {
     summary: "Leonardo Cardoso é um Desenvolvedor de Software focado em sustentação de aplicações críticas, troubleshooting avançado, backend, APIs e integrações entre sistemas.",
@@ -23,12 +24,14 @@ const knowledgeBase = {
     fallback: "O chatbot ainda está sendo desenvolvido e alimentado com mais informações. Por enquanto, tente perguntar sobre experiência profissional, tecnologias, projetos, formação, certificações, idiomas ou objetivos de carreira."
 };
 
+
 const sensitiveTerms = [
     "telefone", "celular", "numero", "número", "whatsapp", "endereco", "endereço", "rua", "casa", "bairro", "cep",
     "cpf", "rg", "idade", "data de nascimento", "nascimento", "salario", "salário", "email", "e-mail", "contato pessoal",
     "documento", "estado civil", "familia", "família", "namorada", "namoro", "filho", "filhos", "religiao", "religião",
     "politica", "política"
 ];
+
 
 
 function tokenizeHTML(html) {
@@ -103,6 +106,26 @@ function setupTypewriterSections() {
     });
 
     typewriterTargets.forEach(element => observer.observe(element));
+}
+
+
+function setupRevealElements() {
+    if (!revealTargets.length || typeof IntersectionObserver === "undefined") return;
+
+    revealTargets.forEach(element => element.classList.add("reveal-on-scroll"));
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.16,
+        rootMargin: "0px 0px -8% 0px"
+    });
+
+    revealTargets.forEach(element => observer.observe(element));
 }
 
 function normalize(text) {
@@ -197,7 +220,7 @@ window.addEventListener("load", () => {
     }
 
     setupTypewriterSections();
-
+    setupRevealElements();
     window.setTimeout(() => {
         if (pageLoader) pageLoader.classList.add("page-loader-hidden");
         document.body.classList.remove("is-loading");
@@ -248,3 +271,5 @@ document.addEventListener("keydown", event => {
         chatbotShell.classList.remove("chatbot-open");
     }
 });
+
+
