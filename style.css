@@ -67,6 +67,92 @@ body {
   animation-direction: reverse;
   opacity: 0.34;
 }
+.scroll-rocket{
+  position: fixed;
+  right: 3rem;
+  top: 14rem;
+  width: 8rem;
+  height: calc(100vh - 18rem);
+  z-index: 6;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+.scroll-rocket-trail{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 0.5rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(0, 102, 255, 0) 0%, rgba(0, 102, 255, 0.28) 18%, rgba(72, 150, 255, 0.9) 50%, rgba(0, 102, 255, 0.25) 82%, rgba(0, 102, 255, 0) 100%);
+  box-shadow: 0 0 1.4rem rgba(13, 107, 255, 0.28);
+  opacity: 0.9;
+}
+.scroll-rocket-core{
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 3.6rem;
+  height: 8rem;
+  transform: translate(-50%, 0);
+  border-radius: 2rem 2rem 1.4rem 1.4rem;
+  background: linear-gradient(180deg, #f8fbff 0%, #c8d8f2 60%, #86a9df 100%);
+  box-shadow: 0 0 2rem rgba(13, 107, 255, 0.22);
+  will-change: transform;
+}
+.scroll-rocket-core::before{
+  content: "";
+  position: absolute;
+  top: -1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.2rem;
+  height: 2.6rem;
+  background: linear-gradient(180deg, #ffffff 0%, #b8cff5 100%);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+.scroll-rocket-window{
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  width: 1.3rem;
+  height: 1.3rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #dbf4ff 0%, #7dc2ff 48%, #1f5ec8 100%);
+  box-shadow: 0 0 0 0.28rem rgba(18, 32, 58, 0.14);
+}
+.scroll-rocket-fin{
+  position: absolute;
+  bottom: 1rem;
+  width: 1.2rem;
+  height: 2rem;
+  background: linear-gradient(180deg, #2f7fff 0%, #0058e6 100%);
+}
+.scroll-rocket-fin-left{
+  left: -0.7rem;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  border-radius: 0.6rem 0 0.8rem 0.8rem;
+}
+.scroll-rocket-fin-right{
+  right: -0.7rem;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  border-radius: 0 0.6rem 0.8rem 0.8rem;
+}
+.scroll-rocket-flame{
+  position: absolute;
+  left: 50%;
+  bottom: -1.6rem;
+  width: 1.5rem;
+  height: 2.3rem;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #d9f3ff 0%, #49a5ff 35%, #0066ff 72%, rgba(0, 102, 255, 0) 100%);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  filter: drop-shadow(0 0 0.8rem rgba(73, 165, 255, 0.55));
+  animation: rocketFlame 0.75s ease-in-out infinite alternate;
+}
 .is-loading{
   overflow: hidden;
 }
@@ -482,6 +568,10 @@ section{
     from{ transform: translate3d(0, 0, 0); }
     to{ transform: translate3d(-2rem, 2rem, 0); }
 }
+@keyframes rocketFlame{
+    from{ transform: translateX(-50%) scaleY(0.9); opacity: 0.75; }
+    to{ transform: translateX(-50%) scaleY(1.08); opacity: 1; }
+}
 .projects{
     background: transparent;
 }
@@ -709,6 +799,35 @@ section{
 }
 
 @media(max-width:768px){
+    .scroll-rocket{
+        right: 1rem;
+        width: 5.4rem;
+        top: 11rem;
+        height: calc(100vh - 14rem);
+        opacity: 0.8;
+    }
+    .scroll-rocket-core{
+        width: 2.8rem;
+        height: 6.2rem;
+    }
+    .scroll-rocket-core::before{
+        width: 1.8rem;
+        height: 2rem;
+    }
+    .scroll-rocket-window{
+        top: 1.2rem;
+        width: 1rem;
+        height: 1rem;
+    }
+    .scroll-rocket-fin{
+        width: 1rem;
+        height: 1.6rem;
+    }
+    .scroll-rocket-flame{
+        width: 1.2rem;
+        height: 1.8rem;
+        bottom: -1.2rem;
+    }
     html{
         font-size: 55%;
     }
@@ -1108,6 +1227,9 @@ section{
     }
 }
 @media(max-width:420px){
+    .scroll-rocket{
+        display: none;
+    }
     .chatbot-panel{
         width: calc(100vw - 1.6rem);
         right: -0.2rem;
