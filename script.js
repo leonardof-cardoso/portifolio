@@ -10,7 +10,6 @@ const suggestionChips = document.querySelectorAll(".suggestion-chip");
 const pageLoader = document.querySelector("#page-loader");
 const typewriterTargets = document.querySelectorAll("[data-typewriter]");
 const revealTargets = document.querySelectorAll(".project-card, .cv-box, .about-img, .about-content, .stack-marquee, .stack-subtitle, .home-img, .home-content, .footer .social-icons, .footer .list, .footer .copyright");
-const scrollRocket = document.querySelector("#scroll-rocket .scroll-rocket-core");
 
 const knowledgeBase = {
     summary: "Leonardo Cardoso é um Desenvolvedor de Software focado em sustentação de aplicações críticas, troubleshooting avançado, backend, APIs e integrações entre sistemas.",
@@ -130,34 +129,6 @@ function setupRevealElements() {
 }
 
 
-function setupScrollRocket() {
-    if (!scrollRocket) return;
-
-    let ticking = false;
-
-    const updateRocket = () => {
-        const doc = document.documentElement;
-        const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
-        const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
-        const trackHeight = Math.max(0, window.innerHeight - 18 * 16);
-        const travel = Math.max(0, trackHeight - 140);
-        const y = progress * travel;
-        const rotate = -8 + progress * 16;
-
-        scrollRocket.style.transform = `translate(-50%, ${y}px) rotate(${rotate}deg)`;
-        ticking = false;
-    };
-
-    const onScroll = () => {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(updateRocket);
-    };
-
-    updateRocket();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-}
 
 function normalize(text) {
     return text
@@ -252,7 +223,6 @@ window.addEventListener("load", () => {
 
     setupTypewriterSections();
     setupRevealElements();
-    setupScrollRocket();
     window.setTimeout(() => {
         if (pageLoader) pageLoader.classList.add("page-loader-hidden");
         document.body.classList.remove("is-loading");
