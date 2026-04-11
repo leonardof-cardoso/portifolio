@@ -28,6 +28,9 @@ body {
 .is-loading {
   overflow: hidden;
 }
+body[data-chatbot-enabled="false"] .chatbot-shell {
+  display: none !important;
+}
 
 .site-stars {
   position: fixed;
