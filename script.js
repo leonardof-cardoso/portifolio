@@ -10,6 +10,8 @@ const suggestionChips = document.querySelectorAll(".suggestion-chip");
 const pageLoader = document.querySelector("#page-loader");
 const typewriterTargets = document.querySelectorAll("[data-typewriter]");
 const revealTargets = document.querySelectorAll(".project-card, .cv-box, .about-img, .about-content, .stack-marquee, .stack-subtitle, .home-img, .home-content, .footer .social-icons, .footer .list, .footer .copyright");
+const isChatbotEnabled = document.body?.dataset.chatbotEnabled === "true";
+const MAX_CHATBOT_QUESTION_LENGTH = 300;
 
 const knowledgeBase = {
     summary: "Leonardo Cardoso é um Desenvolvedor de Software focado em sustentação de aplicações críticas, troubleshooting avançado, backend, APIs e integrações entre sistemas.",
@@ -24,7 +26,6 @@ const knowledgeBase = {
     fallback: "O chatbot ainda está sendo desenvolvido e alimentado com mais informações. Por enquanto, tente perguntar sobre experiência profissional, tecnologias, projetos, formação, certificações, idiomas ou objetivos de carreira."
 };
 
-
 const sensitiveTerms = [
     "telefone", "celular", "numero", "número", "whatsapp", "endereco", "endereço", "rua", "casa", "bairro", "cep",
     "cpf", "rg", "idade", "data de nascimento", "nascimento", "salario", "salário", "email", "e-mail", "contato pessoal",
@@ -32,22 +33,29 @@ const sensitiveTerms = [
     "politica", "política"
 ];
 
-
-
 function tokenizeHTML(html) {
     const tokens = [];
     let index = 0;
 
     while (index < html.length) {
-        if (html[index] == "<") {
+        if (html[index] === "<") {
             const closeIndex = html.indexOf(">", index);
+            if (closeIndex === -1) {
+                tokens.push(html.slice(index));
+                break;
+            }
             tokens.push(html.slice(index, closeIndex + 1));
             index = closeIndex + 1;
             continue;
         }
 
-        if (html[index] == "&") {
+        if (html[index] === "&") {
             const entityEnd = html.indexOf(";", index);
+            if (entityEnd === -1) {
+                tokens.push(html[index]);
+                index += 1;
+                continue;
+            }
             tokens.push(html.slice(index, entityEnd + 1));
             index = entityEnd + 1;
             continue;
@@ -108,7 +116,6 @@ function setupTypewriterSections() {
     typewriterTargets.forEach(element => observer.observe(element));
 }
 
-
 function setupRevealElements() {
     if (!revealTargets.length || typeof IntersectionObserver === "undefined") return;
 
@@ -128,10 +135,8 @@ function setupRevealElements() {
     revealTargets.forEach(element => observer.observe(element));
 }
 
-
-
 function normalize(text) {
-    return text
+    return String(text || "")
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
@@ -159,6 +164,8 @@ function buildMessage(text, type) {
 }
 
 function appendMessage(text, type) {
+    if (!chatbotBody) return null;
+
     const node = buildMessage(text, type);
     chatbotBody.appendChild(node);
     chatbotBody.scrollTop = chatbotBody.scrollHeight;
@@ -166,6 +173,8 @@ function appendMessage(text, type) {
 }
 
 function appendTyping() {
+    if (!chatbotBody) return null;
+
     const wrapper = document.createElement("div");
     wrapper.className = "chatbot-message chatbot-message-bot chatbot-message-typing";
 
@@ -201,15 +210,16 @@ function getAnswer(question) {
 }
 
 function handleQuestion(question) {
-    if (!question.trim()) return;
+    const normalizedQuestion = String(question || "").trim().slice(0, MAX_CHATBOT_QUESTION_LENGTH);
+    if (!normalizedQuestion || !chatbotBody) return;
 
-    appendMessage(question.trim(), "user");
-    const answer = getAnswer(question);
+    appendMessage(normalizedQuestion, "user");
+    const answer = getAnswer(normalizedQuestion);
     const typing = appendTyping();
     const waitTime = Math.min(1250, Math.max(520, answer.length * 7));
 
     window.setTimeout(() => {
-        typing.remove();
+        typing?.remove();
         appendMessage(answer, "bot");
     }, waitTime);
 }
@@ -230,13 +240,13 @@ window.addEventListener("load", () => {
 });
 
 if (menuIcon && navbar) {
-    menuIcon.onclick = () => {
+    menuIcon.addEventListener("click", () => {
         menuIcon.classList.toggle("bx-x");
         navbar.classList.toggle("active");
-    };
+    });
 }
 
-if (chatbotToggle && chatbotShell) {
+if (isChatbotEnabled && chatbotToggle && chatbotShell) {
     chatbotToggle.addEventListener("click", () => {
         chatbotShell.classList.toggle("chatbot-open");
         if (chatbotShell.classList.contains("chatbot-open") && chatbotInput) {
@@ -245,11 +255,11 @@ if (chatbotToggle && chatbotShell) {
     });
 }
 
-if (chatbotClose && chatbotShell) {
+if (isChatbotEnabled && chatbotClose && chatbotShell) {
     chatbotClose.addEventListener("click", () => chatbotShell.classList.remove("chatbot-open"));
 }
 
-if (chatbotForm && chatbotInput) {
+if (isChatbotEnabled && chatbotForm && chatbotInput) {
     chatbotForm.addEventListener("submit", event => {
         event.preventDefault();
         const question = chatbotInput.value;
@@ -258,20 +268,20 @@ if (chatbotForm && chatbotInput) {
     });
 }
 
-if (suggestionChips.length) {
+if (isChatbotEnabled && suggestionChips.length) {
     suggestionChips.forEach(chip => chip.addEventListener("click", () => handleQuestion(chip.textContent || "")));
 }
 
 document.addEventListener("click", event => {
+    if (!isChatbotEnabled) return;
     if (!chatbotShell || !chatbotShell.classList.contains("chatbot-open")) return;
     if (chatbotShell.contains(event.target)) return;
     chatbotShell.classList.remove("chatbot-open");
 });
 
 document.addEventListener("keydown", event => {
+    if (!isChatbotEnabled) return;
     if (event.key === "Escape" && chatbotShell?.classList.contains("chatbot-open")) {
         chatbotShell.classList.remove("chatbot-open");
     }
 });
-
-
